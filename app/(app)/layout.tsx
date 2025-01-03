@@ -11,18 +11,18 @@ import queryClient from '@/lib/query'
 const Layout = async ({ children }: {children: ReactNode}) => {
     const session = await getServerSession(authOptions)
 
-    if (!session) {
+    if (!session || !session.user) {
         redirect('/login')
     }
 
 
     return(
         <SidebarProvider>
-            <AppSidebar />
+            <AppSidebar email={session.user.email!} />
             <SidebarInset>
                 <div className="h-full">
                 <header className="sticky top-0 bg-background/90 backdrop-blur-sm flex h-16 shrink-0 items-center gap-2 border-b px-4">
-                    <SidebarTrigger />
+                    
                 </header>
                     {children}
                 </div>

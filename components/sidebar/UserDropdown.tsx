@@ -1,5 +1,3 @@
-"use client"
-
 import * as React from "react"
 import { ChevronUp, SunMoonIcon } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -18,10 +16,6 @@ import { Button } from "../ui/button"
 import { useTheme } from "next-themes"
 
 export function UserDropdown({ email }: { email: string }) {
-    const { systemTheme, theme, setTheme } = useTheme()
-
-    const currentTheme = theme === "system" ? systemTheme : theme;
-
     return (
         <SidebarMenu>
         <SidebarMenuItem>
@@ -44,10 +38,6 @@ export function UserDropdown({ email }: { email: string }) {
                 className="w-[--radix-dropdown-menu-trigger-width]" 
                 align="start"
             >
-                <Button>
-                    {theme}
-                    <SunMoonIcon onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}/>
-                </Button>
                 <DropdownMenuItem
                     className="cursor-pointer"
                     key={1}
