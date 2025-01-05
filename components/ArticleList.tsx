@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardTitle, CardDescription, CardHeader } from "@/components/ui/card"
 import { useRouter } from 'next/navigation'

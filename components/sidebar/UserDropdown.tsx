@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ChevronUp, SunMoonIcon } from "lucide-react"
+import { ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -12,8 +12,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Button } from "../ui/button"
-import { useTheme } from "next-themes"
 
 export function UserDropdown({ email }: { email: string }) {
     return (

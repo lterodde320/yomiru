@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { prisma } from '@/lib/prismaClient'
-import { authOptions } from '../auth/[...nextauth]/route'
 import { loadNewFeedArticles } from '@/lib/updateArticles.mjs'
-import { UserSession } from '../auth/[...nextauth]/route'
+import { UserSession, authOptions } from '@/lib/authOptions'
 
 
 export async function GET() {

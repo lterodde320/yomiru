@@ -6,7 +6,7 @@ const ExternalLinkButton = ({url}: {url: string | null}) => {
 
 
     return (
-        <Button disabled={!url} onClick={() => {url && window.open(url)}}>
+        <Button disabled={!url} onClick={() => {window.open(url!)}}>
             Open
             <ExternalLink/>
         </Button>

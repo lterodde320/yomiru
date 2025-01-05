@@ -1,13 +1,10 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { PrismaClient } from '@prisma/client'
-import { authOptions, UserSession } from '../auth/[...nextauth]/route'
-import Parser from 'rss-parser'
+import { UserSession, authOptions } from '@/lib/authOptions'
+
 
 const prisma = new PrismaClient()
-const parser = new Parser({
-  defaultRSS: 2
-})
 
 export async function GET() {
   const session = await getServerSession(authOptions)

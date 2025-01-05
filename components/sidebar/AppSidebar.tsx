@@ -137,7 +137,7 @@ function NavMain({
               </SidebarMenuItem>
             </Collapsible>
           ):(
-            <SidebarMenuItem>
+            <SidebarMenuItem key="item.title">
               <Link href={item.url} > 
                 <SidebarMenuButton tooltip={item.title} >
                   
