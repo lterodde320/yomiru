@@ -1,0 +1,19 @@
+services:
+  yomiru:
+    image: ghcr.io/lterodde320/yomiru:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXTAUTH_SECRET=secret
+      - NEXTAUTH_URL=http://localhost:3000
+      - DATABASE_URL=postgresql://postgres:password@db:5432/yomiru
+    restart: always
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=yomiru
+    volumes:
+      - /var/lib/postgresql/data
+    restart: always
