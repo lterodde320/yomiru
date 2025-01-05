@@ -1,4 +1,3 @@
-import { HTMLAttributes } from "react";
 import { cn } from "@/lib/utils"
 
 const Header = ({children, className}: {children: React.ReactNode, className?: string}) => {

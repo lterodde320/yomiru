@@ -1,9 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { PrismaClient } from "@prisma/client";
 import { redirect } from "next/navigation";
 import sanitizeHtml from 'sanitize-html';
-import { ArrowLeft, ExternalLink, MoveLeft } from 'lucide-react';
-import Link from "next/link";
 import ExternalLinkButton from "@/components/article/ExternalLinkButton";
 import Header from "@/components/navigation/Header";
 import BackButton from "@/components/article/BackButton";
