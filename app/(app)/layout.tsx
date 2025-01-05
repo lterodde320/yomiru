@@ -21,9 +21,6 @@ const Layout = async ({ children }: {children: ReactNode}) => {
             <AppSidebar email={session.user.email!} />
             <SidebarInset>
                 <div className="h-full">
-                <header className="sticky top-0 bg-background/90 backdrop-blur-sm flex h-16 shrink-0 items-center gap-2 border-b px-4">
-                    
-                </header>
                     {children}
                 </div>
             </SidebarInset>

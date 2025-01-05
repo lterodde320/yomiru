@@ -74,7 +74,7 @@ export default function ArticleList() {
       ) : (
         <ul className='space-y-3'>
           {articles.map(article => (
-            <Card className='cursor-pointer' key={article.id} onClick={() => router.push(`article/${article.id}`, {})}>
+            <Card className='cursor-pointer' key={article.id} onClick={() => router.push(`/article/${article.id}`, {})}>
               <CardHeader>
                 <CardTitle className="text-xl font-bold line-clamp-1">
                     {article.title}

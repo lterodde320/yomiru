@@ -1,11 +1,10 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '@/lib/prismaClient'
 import { authOptions } from '../auth/[...nextauth]/route'
 import { loadNewFeedArticles } from '@/lib/updateArticles.mjs'
 import { UserSession } from '../auth/[...nextauth]/route'
 
-const prisma = new PrismaClient()
 
 export async function GET() {
   const session = await getServerSession(authOptions)

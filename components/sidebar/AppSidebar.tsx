@@ -1,17 +1,10 @@
 "use client"
 
+import Link from "next/link"
+
 import * as React from "react"
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
   Settings2,
-  SquareTerminal,
   Newspaper
 } from "lucide-react"
 
@@ -34,7 +27,6 @@ import {
 } from "@/components/ui/collapsible"
 import {
   SidebarGroup,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -49,20 +41,15 @@ const data = {
   navMain: [
     {
       title: "Feeds",
-      url: "#",
+      url: "/feed",
       icon: Newspaper,
-      isActive: true,
-      items: [
-        {
-          title: "Latest",
-          url: "/feed",
-        }
-      ],
+      isCollapsible: false,
     },
     {
       title: "Settings",
       url: "#",
       icon: Settings2,
+      isCollapsible: true,
       items: [
         {
           title: "Manage Feeds",
@@ -108,6 +95,7 @@ function NavMain({
     url: string
     icon?: LucideIcon
     isActive?: boolean
+    isCollapsible: boolean
     items?: {
       title: string
       url: string
@@ -118,35 +106,48 @@ function NavMain({
     <SidebarGroup>
       <SidebarMenu>
         {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
+          item.isCollapsible ? (
+            <Collapsible
+              key={item.title}
+              asChild
+              defaultOpen={item.isActive}
+              className="group/collapsible"
+            >
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton tooltip={item.title}>
+                    {item.icon && <item.icon />}
+                    <span>{item.title}</span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    {item.items?.map((subItem) => (
+                      <SidebarMenuSubItem key={subItem.title}>
+                        <SidebarMenuSubButton asChild>
+                          <a href={subItem.url}>
+                            <span>{subItem.title}</span>
+                          </a>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+          ):(
             <SidebarMenuItem>
-              <CollapsibleTrigger asChild>
-                <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
-                  <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+              <Link href={item.url} > 
+                <SidebarMenuButton tooltip={item.title} >
+                  
+                    {item.icon && <item.icon />}
+                    <span>{item.title}</span>
+                  
                 </SidebarMenuButton>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <SidebarMenuSub>
-                  {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
-                          <span>{subItem.title}</span>
-                        </a>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  ))}
-                </SidebarMenuSub>
-              </CollapsibleContent>
+                </Link>
             </SidebarMenuItem>
-          </Collapsible>
+          )
         ))}
       </SidebarMenu>
     </SidebarGroup>
