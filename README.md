@@ -14,33 +14,8 @@ Yomiru is a simple open-source RSS reader app that can be self-hosted. It is des
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js
-- PostgreSQL
-
-### Installation
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/lterodde320/yomiru.git
-    cd yomiru
-    ```
-
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
-
-3. Set up the database:
-    ```bash
-    npx prisma migrate dev
-    ```
-
-4. Start the development server:
-    ```bash
-    npm run dev
-    ```
+To get started, you can find an example docker-compose.yml file under the examples folder.
+Make sure you change your environment variables according to your needs.
 
 ## Usage
 
